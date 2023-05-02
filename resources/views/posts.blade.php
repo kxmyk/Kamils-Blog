@@ -4,18 +4,25 @@
 @section('posts')
   @foreach ($posts as $post)
     <h2>
-      <a href="/posts/{{$post->id}}">
-        {{$post->title}}
+      <a href="/posts/{{ $post->slug }}">
+        {{ $post->title }}
       </a>
+      <br>
     </h2>
-    
-    <h3>
-      {{$post->excerpt}}
-    </h3>
-    
+
+    <h4>
+      by <a href="/authors/{{ $post->author->username }}">
+        {{ $post->author->name }}
+      </a>
+      in <a href="/categories/{{ $post->category->slug }}">
+        {{ $post->category->name }}
+      </a>
+    </h4>
+
     <h5>
-      {!! $post->body !!}
+      {{ $post->excerpt }}
     </h5>
+
   @endforeach
 @endsection
 
