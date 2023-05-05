@@ -10,13 +10,13 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-  /**
-   * Seed the application's database.
-   */
-  public function run(): void
-  {
-    
-    Post::factory(5)->create();
-    
-  }
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+
+        Post::factory(10)->create();
+
+    }
 }
