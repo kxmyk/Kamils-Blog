@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -10,7 +11,7 @@ class PostController extends Controller
     public function index()
     {
         return view('posts.index', [
-            'posts' => Post::latest()->filter(request(['search', 'category']))->get(),
+            'posts' => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(6)->withQueryString(),
         ]);
     }
 
@@ -19,6 +20,14 @@ class PostController extends Controller
     {
         return view('posts.show', [
             'post' => $post
+        ]);
+    }
+
+    // Route ('authors/{author:username}')
+    public function author(User $author)
+    {
+        return view('posts.index', [
+            'posts' => $author->posts,
         ]);
     }
 }
