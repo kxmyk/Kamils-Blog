@@ -37,8 +37,9 @@
         <input type="text"
                name="search"
                placeholder="Find something"
-               class="bg-transparent placeholder-black font-semibold text-sm"
+               class="bg-transparent placeholder-black font-semibold text-sm outline-none"
                value="{{  request('search') }}">
+
       </form>
     </div>
   </div>
