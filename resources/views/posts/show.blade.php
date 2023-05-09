@@ -55,8 +55,29 @@
             </p>
           </div>
 
-          {{--user--}}
+          {{--comments form--}}
           <section class="mt-10">
+            <form method="POST" action="#" class="p-6 border border-gray-200 rounded-xl mb-8">
+              @csrf
+
+              <header class="flex">
+                <img src="https://i.pravatar.cc/100?id={{ auth()->id() }}" alt="user avatar" class="rounded-full w-12"/>
+                <h2 class="ml-4">Leave a comment</h2>
+              </header>
+
+              <div class="mt-8">
+                <textarea name="body" cols="30" rows="10" class="w-full text-sm focus:outline-none focus:ring"
+                          placeholder="Think of something to say"></textarea>
+              </div>
+
+              <div>
+                
+              </div>
+
+            </form>
+
+
+            {{--comments display--}}
             @foreach($post->comments as $comment)
               <x-post-comment :comment="$comment"/>
             @endforeach
